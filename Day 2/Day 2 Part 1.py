@@ -3,7 +3,7 @@ with open('data.txt','r') as f:
 
 data=data.split('\n')
 data=[[int(j) for j in i.split()] for i in data]
-print(data)
+
 safe=0
 for k in data:
 
