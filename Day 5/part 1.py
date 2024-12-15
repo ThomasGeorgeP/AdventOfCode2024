@@ -9,15 +9,15 @@ num_rules_dict={}
 for i,j in priority_list:
 
     if j not in num_rules_dict:
-        num_rules_dict[j]={'before':set()}
+        num_rules_dict[j]=set()
     
-    num_rules_dict[j]['before'].add(i)
+    num_rules_dict[j].add(i)
 
 count=0
 
 for i in check_list:
     for j in range(len(i)-1,-1,-1):
-        if set(i[:j]) - num_rules_dict[i[j]]['before'] !=set():
+        if set(i[:j]) - num_rules_dict[i[j]] !=set():
             break
     else:
         count+=i[len(i)//2]
