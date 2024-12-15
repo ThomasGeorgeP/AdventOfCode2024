@@ -16,10 +16,13 @@ for i,j in priority_list:
 count=0
 
 for i in check_list:
-    for j in range(len(i)-1,-1,-1):
-        if set(i[:j]) - num_rules_dict[i[j]] !=set():
-            break
-    else:
+    # for j in range(len(i)-1,-1,-1):
+    #     if set(i[:j]) - num_rules_dict[i[j]] !=set():
+    #         break
+    # else:
+    #     count+=i[len(i)//2]
+    order_len=[True for j in range(len(i)-1,-1,-1) if set(i[:j]) - num_rules_dict[i[j]] ==set()]
+    if len(order_len)==len(i):
         count+=i[len(i)//2]
 
 print(count)
